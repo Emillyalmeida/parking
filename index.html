@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking</title>
+  </head>
+  <body>
+    <header>
+      <h1>Parking</h1>
+    </header>
+    <main>
+      <section>
+        <h2></h2>
+        <form action="">
+          <input
+            type="text"
+            name="name"
+            placeholder="digite o nome do veiculo"
+          />
+          <input
+            type="text"
+            name="placa"
+            placeholder="digite a placa do veiculo"
+          />
+          <select name="type" placeholder="selecione o tipo do veiculo">
+            <option value="car">carro</option>
+            <option value="motocycle">moto</option>
+            <option value="truck">caminhão</option>
+          </select>
+          <button>adicionar</button>
+        </form>
+      </section>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Placa</th>
+            <th>Tipo</th>
+            <th>Entrada</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="vehicles"></tbody>
+      </table>
+    </main>
+  </body>
+</html>
