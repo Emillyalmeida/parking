@@ -18,13 +18,19 @@
             type="text"
             name="name"
             placeholder="digite o nome do veiculo"
+            required
           />
           <input
             type="text"
             name="placa"
             placeholder="digite a placa do veiculo"
+            required
           />
-          <select name="type" placeholder="selecione o tipo do veiculo">
+          <select
+            name="type"
+            placeholder="selecione o tipo do veiculo"
+            required
+          >
             <option value="car">carro</option>
             <option value="motocycle">moto</option>
             <option value="truck">caminhão</option>
@@ -45,5 +51,6 @@
         <tbody id="vehicles"></tbody>
       </table>
     </main>
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
