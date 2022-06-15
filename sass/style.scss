@@ -17,6 +17,7 @@ header {
   justify-content: center;
   background-color: $secundary-color;
   height: 10vh;
+  border-bottom: 2px double $text-color;
 
   h1 {
     font-size: 3rem;
@@ -79,7 +80,42 @@ main {
   }
 
   table {
-    width: fit-content;
+    width: 90%;
+    max-width: 600px;
     border-collapse: collapse;
+    thead {
+      tr,
+      th {
+        background-color: $secundary-color;
+        padding: 10px;
+        text-align: center;
+      }
+    }
+
+    tbody {
+      color: $text-darkcolor;
+
+      th,
+      td {
+        text-align: center;
+        padding: 8px;
+      }
+      tr {
+        &:nth-child(even) {
+          background-color: #74c69d;
+        }
+
+        button {
+          width: 25px;
+          height: 25px;
+          color: $secundary-color;
+          background-color: $text-color;
+          font-weight: 700;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.1rem;
+        }
+      }
+    }
   }
 }

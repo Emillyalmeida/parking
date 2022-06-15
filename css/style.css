@@ -12,6 +12,7 @@ header {
   justify-content: center;
   background-color: #081c15;
   height: 10vh;
+  border-bottom: 2px double #d8f3dc;
 }
 header h1 {
   font-size: 3rem;
@@ -72,8 +73,36 @@ main form button {
   font-weight: 700;
 }
 main table {
-  width: fit-content;
+  width: 90%;
+  max-width: 600px;
   border-collapse: collapse;
+}
+main table thead tr,
+main table thead th {
+  background-color: #081c15;
+  padding: 10px;
+  text-align: center;
+}
+main table tbody {
+  color: #1b4332;
+}
+main table tbody th,
+main table tbody td {
+  text-align: center;
+  padding: 8px;
+}
+main table tbody tr:nth-child(even) {
+  background-color: #74c69d;
+}
+main table tbody tr button {
+  width: 25px;
+  height: 25px;
+  color: #081c15;
+  background-color: #d8f3dc;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
