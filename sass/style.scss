@@ -1,0 +1,85 @@
+$primary-color: #52b788;
+$secundary-color: #081c15;
+$text-color: #d8f3dc;
+$text-darkcolor: #1b4332;
+
+body {
+  background-color: $primary-color;
+  color: $text-color;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $secundary-color;
+  height: 10vh;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  section {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+    @media (min-width: 768px) {
+      width: 48%;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-align: center;
+      color: $text-darkcolor;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    input,
+    select {
+      border: none;
+      border-radius: 5px;
+      width: 250px;
+      height: 35px;
+    }
+
+    button {
+      border: none;
+      border-radius: 5px;
+      width: 100px;
+      height: 30px;
+      background-color: $secundary-color;
+      color: $text-color;
+      font-weight: 700;
+    }
+  }
+
+  table {
+    width: fit-content;
+    border-collapse: collapse;
+  }
+}
