@@ -212,11 +212,38 @@ main {
       }
     }
 
+    section {
+      height: 60px;
+      color: $text-darkcolor;
+      padding: 10px;
+
+      h3 {
+        margin: 0 10px;
+      }
+    }
+
     .div-buttons {
       height: 55px;
       display: flex;
       align-items: center;
       justify-content: flex-end;
+
+      > button {
+        border: none;
+        border-radius: 5px;
+        width: 100px;
+        height: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
+        background-color: $text-color;
+        color: $secundary-color;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $primary-color;
+        }
+      }
 
       .confirm {
         border: none;

@@ -189,11 +189,34 @@ main table tbody tr button:hover {
   color: #d8f3dc;
   background-color: #081c15;
 }
+.modal-delete > section section {
+  height: 60px;
+  color: #1b4332;
+  padding: 10px;
+}
+.modal-delete > section section h3 {
+  margin: 0 10px;
+}
 .modal-delete > section .div-buttons {
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+.modal-delete > section .div-buttons > button {
+  border: none;
+  border-radius: 5px;
+  width: 100px;
+  height: 30px;
+  margin-right: 15px;
+  margin-left: 15px;
+  background-color: #d8f3dc;
+  color: #081c15;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modal-delete > section .div-buttons > button:hover {
+  background-color: #52b788;
 }
 .modal-delete > section .div-buttons .confirm {
   border: none;

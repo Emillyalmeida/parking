@@ -1,4 +1,5 @@
 const form: HTMLFormElement | null = document.querySelector("form");
+const modal = document.getElementById("delete");
 
 interface vehicle {
   name: string;
@@ -6,6 +7,13 @@ interface vehicle {
   type: string;
   entrace: Date | string;
 }
+
+const btnClose = document
+  .querySelector(".close")
+  ?.addEventListener("click", () => {
+    modal?.classList.add("not-modal");
+    modal?.classList.remove("modal-delete");
+  });
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -27,6 +35,15 @@ form?.addEventListener("submit", (event) => {
         : (dataCadastro.placa = value);
     }
   }
+  const placaIsRegister = Actions.getVehicle().some(
+    (vehicle) => vehicle.placa === dataCadastro.placa
+  );
+
+  if (placaIsRegister) {
+    alert("ja existe um veiculo cadastrado com essa placa");
+    return;
+  }
+
   Actions.AddVehicle(dataCadastro);
 });
 
@@ -78,19 +95,24 @@ class Actions {
       const time = this.CalculateTime(
         new Date().getTime() - new Date(find!.entrace).getTime()
       );
+      modal?.classList.add("modal-delete");
+      modal?.classList.remove("not-modal");
+      const h3 = document.getElementById("text-info");
 
-      if (
-        !confirm(
-          `O veiculo ${find.name} ficou ficou por ${time}. Deseja encerar?`
-        )
-      )
-        return;
+      h3!.innerText = "";
+      h3!.innerText = `O veiculo ${find.name} ficou ficou por ${time}. Deseja encerar?`;
 
-      const newList = this.getVehicle().filter(
-        (vehicle) => vehicle.placa !== placa
-      );
-      localStorage.setItem("parking", JSON.stringify(newList));
-      this.Render(newList);
+      const btnDelete = document
+        .getElementById("btn-delete")
+        ?.addEventListener("click", () => {
+          const newList = this.getVehicle().filter(
+            (vehicle) => vehicle.placa !== placa
+          );
+          localStorage.setItem("parking", JSON.stringify(newList));
+          this.Render(newList);
+          modal?.classList.add("not-modal");
+          modal?.classList.remove("modal-delete");
+        });
     }
   }
 

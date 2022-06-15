@@ -1,5 +1,12 @@
 "use strict";
+var _a;
 const form = document.querySelector("form");
+const modal = document.getElementById("delete");
+const btnClose = (_a = document
+    .querySelector(".close")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+    modal === null || modal === void 0 ? void 0 : modal.classList.add("not-modal");
+    modal === null || modal === void 0 ? void 0 : modal.classList.remove("modal-delete");
+});
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", (event) => {
     event.preventDefault();
     const dataCadastro = {
@@ -18,6 +25,11 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", (eve
                     ? (dataCadastro.type = value)
                     : (dataCadastro.placa = value);
         }
+    }
+    const placaIsRegister = Actions.getVehicle().some((vehicle) => vehicle.placa === dataCadastro.placa);
+    if (placaIsRegister) {
+        alert("ja existe um veiculo cadastrado com essa placa");
+        return;
     }
     Actions.AddVehicle(dataCadastro);
 });
@@ -55,15 +67,24 @@ class Actions {
         });
     }
     static Delete(btn) {
+        var _a;
         const placa = btn.id;
         const find = this.getVehicle().find((vehicle) => vehicle.placa === placa);
         if (find) {
             const time = this.CalculateTime(new Date().getTime() - new Date(find.entrace).getTime());
-            if (!confirm(`O veiculo ${find.name} ficou ficou por ${time}. Deseja encerar?`))
-                return;
-            const newList = this.getVehicle().filter((vehicle) => vehicle.placa !== placa);
-            localStorage.setItem("parking", JSON.stringify(newList));
-            this.Render(newList);
+            modal === null || modal === void 0 ? void 0 : modal.classList.add("modal-delete");
+            modal === null || modal === void 0 ? void 0 : modal.classList.remove("not-modal");
+            const h3 = document.getElementById("text-info");
+            h3.innerText = "";
+            h3.innerText = `O veiculo ${find.name} ficou ficou por ${time}. Deseja encerar?`;
+            const btnDelete = (_a = document
+                .getElementById("btn-delete")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
+                const newList = this.getVehicle().filter((vehicle) => vehicle.placa !== placa);
+                localStorage.setItem("parking", JSON.stringify(newList));
+                this.Render(newList);
+                modal === null || modal === void 0 ? void 0 : modal.classList.add("not-modal");
+                modal === null || modal === void 0 ? void 0 : modal.classList.remove("modal-delete");
+            });
         }
     }
     static CalculateTime(time) {
