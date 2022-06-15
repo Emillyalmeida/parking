@@ -55,7 +55,9 @@ class Actions {
        <td>${name}</td>
        <td>${placa}</td>
        <td>${type}</td>
-       <td>${entrace}</td>
+       <td>${new Date(entrace).getHours()}hrs e ${new Date(
+        entrace
+      ).getMinutes()}min</td>
        <td>
           <button class='delete' id=${placa}>X</button>
        </td>

@@ -1,5 +1,6 @@
 $primary-color: #52b788;
 $secundary-color: #081c15;
+$terciary-color: #74c69d;
 $text-color: #d8f3dc;
 $text-darkcolor: #1b4332;
 
@@ -55,12 +56,15 @@ main {
   }
 
   section + section {
-    border-left: 2px dashed $text-darkcolor;
+    @media (min-width: 1024px) {
+      border-left: 2px dashed $text-darkcolor;
+    }
   }
 
   form {
     width: 90%;
-    background-color: #74c69d;
+    max-width: 600px;
+    background-color: $terciary-color;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,6 +111,7 @@ main {
         background-color: $secundary-color;
         padding: 10px;
         text-align: center;
+        font-weight: 600;
       }
     }
 
@@ -120,7 +125,7 @@ main {
       }
       tr {
         &:nth-child(even) {
-          background-color: #74c69d;
+          background-color: $terciary-color;
         }
 
         button {
@@ -139,6 +144,94 @@ main {
             color: $text-color;
             background-color: $secundary-color;
           }
+        }
+      }
+    }
+  }
+}
+
+.not-modal {
+  display: none;
+}
+
+.modal-delete {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  > section {
+    width: 300px;
+    border-radius: 7px;
+    background-color: $terciary-color;
+    border-radius: 7px;
+
+    section,
+    div {
+      width: 100%;
+    }
+
+    .div-header {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1b4332;
+
+      h2 {
+        color: $text-color;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-left: 15px;
+      }
+
+      button {
+        width: 25px;
+        height: 25px;
+        color: $secundary-color;
+        background-color: $text-color;
+        font-weight: 700;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-right: 15px;
+
+        &:hover {
+          transition: 0.3s;
+          color: $text-color;
+          background-color: $secundary-color;
+        }
+      }
+    }
+
+    .div-buttons {
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .confirm {
+        border: none;
+        border-radius: 5px;
+        width: 100px;
+        height: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
+        background-color: $secundary-color;
+        color: $text-color;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $text-darkcolor;
         }
       }
     }
