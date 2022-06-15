@@ -4,7 +4,7 @@ interface vehicle {
   name: string;
   placa: string;
   type: string;
-  entrace: Date;
+  entrace: Date | string;
 }
 
 form?.addEventListener("submit", (event) => {
@@ -13,7 +13,7 @@ form?.addEventListener("submit", (event) => {
     name: "",
     placa: "",
     type: "",
-    entrace: new Date(),
+    entrace: new Date().toISOString(),
   };
   const inputs = event.target as HTMLFormElement;
 
@@ -38,9 +38,11 @@ class Actions {
 
     this.Render(update);
   }
-  static getVehicle() {
+
+  static getVehicle(): vehicle[] {
     return localStorage.parking ? JSON.parse(localStorage.parking) : [];
   }
+
   static Render(vehicles: vehicle[]) {
     const tbody: HTMLElement | null = document.getElementById("vehicles");
     tbody!.innerHTML = "";
@@ -58,8 +60,43 @@ class Actions {
           <button class='delete' id=${placa}>X</button>
        </td>
     `;
+      row.querySelector(".delete")?.addEventListener("click", (e) => {
+        const btn = e.target as HTMLButtonElement;
+        this.Delete(btn);
+      });
       tbody?.appendChild(row);
     });
   }
-  static Delete() {}
+  static Delete(btn: HTMLButtonElement) {
+    const placa = btn.id;
+
+    const find = this.getVehicle().find((vehicle) => vehicle.placa === placa);
+
+    if (find) {
+      const time = this.CalculateTime(
+        new Date().getTime() - new Date(find!.entrace).getTime()
+      );
+
+      if (
+        !confirm(
+          `O veiculo ${find.name} ficou ficou por ${time}. Deseja encerar?`
+        )
+      )
+        return;
+
+      const newList = this.getVehicle().filter(
+        (vehicle) => vehicle.placa !== placa
+      );
+      localStorage.setItem("parking", JSON.stringify(newList));
+      this.Render(newList);
+    }
+  }
+
+  static CalculateTime(time: number) {
+    const hr = Math.floor(time / 3600000);
+    const min = Math.floor((time % 3600000) / 60000);
+    return `${hr}horas e ${min}minutos`;
+  }
 }
+
+Actions.Render(Actions.getVehicle());
