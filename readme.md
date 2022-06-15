@@ -1,4 +1,4 @@
-# Conheça o **Kenzie**
+# Conheça o **Parking**
 
 È um aplicativo simples onde pode-se cadastrar veiculos no estacionamento e depois pode remove-los do estacionamento.
 
