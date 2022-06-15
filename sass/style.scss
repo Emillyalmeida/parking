@@ -25,6 +25,13 @@ header {
   }
 }
 
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: $text-darkcolor;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -45,20 +52,21 @@ main {
     @media (min-width: 768px) {
       width: 48%;
     }
+  }
 
-    h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      text-align: center;
-      color: $text-darkcolor;
-    }
+  section + section {
+    border-left: 2px dashed $text-darkcolor;
   }
 
   form {
+    width: 90%;
+    background-color: #74c69d;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    padding-bottom: 20px;
+    border-radius: 7px;
 
     input,
     select {
@@ -66,6 +74,11 @@ main {
       border-radius: 5px;
       width: 250px;
       height: 35px;
+
+      &::placeholder {
+        padding-left: 5px;
+        color: $text-darkcolor;
+      }
     }
 
     button {
@@ -76,6 +89,11 @@ main {
       background-color: $secundary-color;
       color: $text-color;
       font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $text-darkcolor;
+      }
     }
   }
 
@@ -114,6 +132,13 @@ main {
           border: none;
           border-radius: 5px;
           font-size: 1.1rem;
+          cursor: pointer;
+
+          &:hover {
+            transition: 0.3s;
+            color: $text-color;
+            background-color: $secundary-color;
+          }
         }
       }
     }

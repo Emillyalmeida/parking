@@ -19,6 +19,13 @@ header h1 {
   font-weight: 700;
 }
 
+h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: #1b4332;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -44,17 +51,18 @@ main section {
     width: 48%;
   }
 }
-main section h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
-  color: #1b4332;
+main section + section {
+  border-left: 2px dashed #1b4332;
 }
 main form {
+  width: 90%;
+  background-color: #74c69d;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  padding-bottom: 20px;
+  border-radius: 7px;
 }
 main form input,
 main form select {
@@ -62,6 +70,11 @@ main form select {
   border-radius: 5px;
   width: 250px;
   height: 35px;
+}
+main form input::placeholder,
+main form select::placeholder {
+  padding-left: 5px;
+  color: #1b4332;
 }
 main form button {
   border: none;
@@ -71,6 +84,10 @@ main form button {
   background-color: #081c15;
   color: #d8f3dc;
   font-weight: 700;
+  cursor: pointer;
+}
+main form button:hover {
+  background-color: #1b4332;
 }
 main table {
   width: 90%;
@@ -103,6 +120,12 @@ main table tbody tr button {
   border: none;
   border-radius: 5px;
   font-size: 1.1rem;
+  cursor: pointer;
+}
+main table tbody tr button:hover {
+  transition: 0.3s;
+  color: #d8f3dc;
+  background-color: #081c15;
 }
 
 /*# sourceMappingURL=style.css.map */
