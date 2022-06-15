@@ -1,11 +1,17 @@
 "use strict";
-var _a;
+var _a, _b;
 const form = document.querySelector("form");
 const modal = document.getElementById("delete");
+const modalInfo = document.getElementById("info");
 const btnClose = (_a = document
     .querySelector(".close")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => {
     modal === null || modal === void 0 ? void 0 : modal.classList.add("not-modal");
     modal === null || modal === void 0 ? void 0 : modal.classList.remove("modal-delete");
+});
+const btnInfo = (_b = document
+    .getElementById("close-info")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => {
+    modalInfo === null || modalInfo === void 0 ? void 0 : modalInfo.classList.add("not-modal");
+    modalInfo === null || modalInfo === void 0 ? void 0 : modalInfo.classList.remove("modal-info");
 });
 form === null || form === void 0 ? void 0 : form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -28,7 +34,8 @@ form === null || form === void 0 ? void 0 : form.addEventListener("submit", (eve
     }
     const placaIsRegister = Actions.getVehicle().some((vehicle) => vehicle.placa === dataCadastro.placa);
     if (placaIsRegister) {
-        alert("ja existe um veiculo cadastrado com essa placa");
+        modalInfo === null || modalInfo === void 0 ? void 0 : modalInfo.classList.add("modal-info");
+        modalInfo === null || modalInfo === void 0 ? void 0 : modalInfo.classList.remove("not-modal");
         return;
     }
     Actions.AddVehicle(dataCadastro);

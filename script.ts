@@ -1,5 +1,6 @@
 const form: HTMLFormElement | null = document.querySelector("form");
 const modal = document.getElementById("delete");
+const modalInfo = document.getElementById("info");
 
 interface vehicle {
   name: string;
@@ -13,6 +14,13 @@ const btnClose = document
   ?.addEventListener("click", () => {
     modal?.classList.add("not-modal");
     modal?.classList.remove("modal-delete");
+  });
+
+const btnInfo = document
+  .getElementById("close-info")
+  ?.addEventListener("click", () => {
+    modalInfo?.classList.add("not-modal");
+    modalInfo?.classList.remove("modal-info");
   });
 
 form?.addEventListener("submit", (event) => {
@@ -40,7 +48,8 @@ form?.addEventListener("submit", (event) => {
   );
 
   if (placaIsRegister) {
-    alert("ja existe um veiculo cadastrado com essa placa");
+    modalInfo?.classList.add("modal-info");
+    modalInfo?.classList.remove("not-modal");
     return;
   }
 

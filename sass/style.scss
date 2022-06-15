@@ -264,3 +264,53 @@ main {
     }
   }
 }
+
+.modal-info {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  > div {
+    width: 300px;
+    border-radius: 7px;
+    background-color: $terciary-color;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    h2 {
+      font-size: 1.2rem;
+      color: $secundary-color;
+    }
+
+    div {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        border: none;
+        border-radius: 5px;
+        width: 60px;
+        height: 30px;
+        margin-right: 15px;
+        margin-left: 15px;
+        background-color: $text-color;
+        color: $secundary-color;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}

@@ -234,4 +234,49 @@ main table tbody tr button:hover {
   background-color: #1b4332;
 }
 
+.modal-info {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.modal-info > div {
+  width: 300px;
+  border-radius: 7px;
+  background-color: #74c69d;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.modal-info > div h2 {
+  font-size: 1.2rem;
+  color: #081c15;
+}
+.modal-info > div div {
+  display: flex;
+  justify-content: flex-end;
+}
+.modal-info > div div button {
+  border: none;
+  border-radius: 5px;
+  width: 60px;
+  height: 30px;
+  margin-right: 15px;
+  margin-left: 15px;
+  background-color: #d8f3dc;
+  color: #081c15;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modal-info > div div button:hover {
+  background-color: #52b788;
+}
+
 /*# sourceMappingURL=style.css.map */
